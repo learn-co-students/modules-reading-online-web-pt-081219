@@ -1,0 +1,39 @@
+class methods : 
+  
+
+instance methods: 
+ through the initialize method
+ 
+ Inheritance using the < syntax, implies that a class is a type of something. A BMW class should inherit from a Car class because a BMW is a type of car: class BMW < Car.
+ 
+ The :: syntax just denotes a name-space. Doing BMW::Car just gives the BMW class access to all constants, instance methods, etc, without stating that a BMW is a type of car. The :: syntax carries all public items over to the inheriting class or module.
+ 
+ If you have a module whose methods you would like to be used in another class as instance methods, then you must include the module.
+
+If you want a module's methods to be used in another class as class methods, you must extend the module.
+ 
+ 
+ 
+ class Dog 
+  @@all = []
+  
+  def initialize 
+  	@@all << self
+  end 
+  def bark
+    # instance method
+    puts "woof"
+  end
+  
+  def self.all 
+    # class method
+    @@all 
+  end
+end
+
+
+dog = Dog.new
+
+dog.bark #=> Woof!
+
+Dog.all # class method, call it on the class itself
